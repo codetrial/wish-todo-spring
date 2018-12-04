@@ -8,6 +8,7 @@
     "node_modules"
   ],
   "devDependencies": {
+    "atob": ">=2.1.0",
     "generator-jhipster": "5.7.0"
   },
   "engines": {
