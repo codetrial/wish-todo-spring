@@ -1,6 +1,7 @@
 ######################
 # Project Specific
 ######################
+.jhipster/
 /build/www/**
 /src/test/javascript/coverage/
 
