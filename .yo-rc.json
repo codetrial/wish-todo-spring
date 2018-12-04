@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.felixpy.codetrial.wishtodo",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "microservice",
+    "baseName": "wishtodo",
+    "packageName": "com.felixpy.codetrial.wishtodo",
+    "packageFolder": "com/felixpy/codetrial/wishtodo",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZDgzMDI4OTFlMDIzNzY3MzJiMWE4NmE0NjI2NWI3MDY2NzMyZWEyZTIwYzY3MGE4NWI4MTNjMGZhYjNlNTkxYWFjYTEwMzhmNmNkYTQ0ZTkxMWNlNzQ1OWFmMzk3NDE4YjhlNDcyMDVkZDk3ZTIwMmMwZjcwMzM1ZmE0NjM5Mjk=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "zh-cn",
+      "zh-tw"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
