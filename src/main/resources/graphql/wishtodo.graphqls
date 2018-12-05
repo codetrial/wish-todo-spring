@@ -13,10 +13,10 @@ type Query {
 
 type Mutation {
     saveTodo(todo: TodoEntity!, wisher: WisherEntity!): Todo
-    removeTodo(id: [ID]!): [ID]
+    removeTodo(id: ID!): ID
 
     saveWisher(wisher: WisherEntity!): Wisher
-    removeWisher(id: [ID]!): [ID]
+    removeWisher(id: ID!): ID
 }
 
 enum TodoStatus {

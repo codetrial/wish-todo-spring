@@ -9,8 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-
 @Component
 public class MutationResolver implements GraphQLMutationResolver {
     private final Logger log = LoggerFactory.getLogger(MutationResolver.class);
@@ -29,12 +27,10 @@ public class MutationResolver implements GraphQLMutationResolver {
         return todoRepository.save(todo);
     }
 
-    public ArrayList<Long> removeTodo(ArrayList<Long> todoIds) {
-        log.debug("GraphQL request to delete Todo : {}", todoIds);
-        for(Long id : todoIds) {
-            todoRepository.deleteById(id);
-        }
-        return todoIds;
+    public Long removeTodo(Long id) {
+        log.debug("GraphQL request to delete Todo : {}", id);
+        todoRepository.deleteById(id);
+        return id;
     }
 
     public Wisher saveWisher(Wisher wisher) {
@@ -42,11 +38,9 @@ public class MutationResolver implements GraphQLMutationResolver {
         return wisherRepository.save(wisher);
     }
 
-    public ArrayList<Long> removeWisher(ArrayList<Long> wisherIds) {
-        log.debug("GraphQL request to delete Wisher : {}", wisherIds);
-        for(Long id : wisherIds) {
-            wisherRepository.deleteById(id);
-        }
-        return wisherIds;
+    public Long removeWisher(Long id) {
+        log.debug("GraphQL request to delete Wisher : {}", id);
+        wisherRepository.deleteById(id);
+        return id;
     }
 }

@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 /**
  * A Wisher.
@@ -39,6 +41,7 @@ public class Wisher implements Serializable {
 
     @OneToMany(mappedBy = "wisher", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @NotFound(action = NotFoundAction.IGNORE)
     @JsonIgnoreProperties("wisher")
     private Set<Todo> todos = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

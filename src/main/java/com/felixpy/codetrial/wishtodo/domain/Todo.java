@@ -1,16 +1,24 @@
 package com.felixpy.codetrial.wishtodo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
+import com.felixpy.codetrial.wishtodo.domain.enumeration.TodoStatus;
 import java.io.Serializable;
 import java.util.Objects;
-
-import com.felixpy.codetrial.wishtodo.domain.enumeration.TodoStatus;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 /**
  * A Todo.
@@ -37,6 +45,7 @@ public class Todo implements Serializable {
 
     @ManyToOne(optional = false)
     @NotNull
+    @NotFound(action = NotFoundAction.IGNORE)
     @JsonIgnoreProperties("todos")
     private Wisher wisher;
 
