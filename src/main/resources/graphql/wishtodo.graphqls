@@ -1,0 +1,51 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    todo(id: ID!): Todo
+    todoList: [Todo]!
+
+    wisher(id: ID!): Wisher
+    wisherList: [Wisher]!
+}
+
+type Mutation {
+    saveTodo(todo: TodoEntity!, wisher: WisherEntity!): Todo
+    removeTodo(id: [ID]!): [ID]
+
+    saveWisher(wisher: WisherEntity!): Wisher
+    removeWisher(id: [ID]!): [ID]
+}
+
+enum TodoStatus {
+    UNDERWAY
+    COMPLETE
+}
+
+type Todo {
+    id: ID!
+    title: String!
+    status: String!
+
+    wisher: Wisher!
+}
+
+input TodoEntity {
+    id: ID
+    title: String
+    status: String
+}
+
+type Wisher {
+    id: ID!
+    name: String!
+
+    todos: [Todo]!
+}
+
+input WisherEntity {
+    id: ID
+    name: String
+}
