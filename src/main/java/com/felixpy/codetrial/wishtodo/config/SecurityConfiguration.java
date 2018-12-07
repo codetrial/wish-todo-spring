@@ -1,9 +1,8 @@
 package com.felixpy.codetrial.wishtodo.config;
 
-import com.felixpy.codetrial.wishtodo.security.*;
-import com.felixpy.codetrial.wishtodo.security.jwt.*;
-
-import org.springframework.context.annotation.Bean;
+import com.felixpy.codetrial.wishtodo.security.AuthoritiesConstants;
+import com.felixpy.codetrial.wishtodo.security.jwt.JWTConfigurer;
+import com.felixpy.codetrial.wishtodo.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
@@ -34,6 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
             .antMatchers(HttpMethod.OPTIONS, "/**")
+            .antMatchers(HttpMethod.GET, "/**")
             .antMatchers("/swagger-ui/index.html")
             .antMatchers("/test/**");
     }
@@ -55,6 +55,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
             .authorizeRequests()
+            .antMatchers("/graphql/**").authenticated()
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
